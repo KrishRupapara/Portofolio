@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #16191e;
+}
+
+#Home,
+#About {
+  height: 100vh;
+}
+
+.btn {
+  display: none;
+}
+
+@layer components {
+  .link-css {
+    @apply px-2 py-1 transition-all duration-200 ease-in-out rounded-md;
+  }
+  .icon-hover {
+    @apply hover:opacity-50;
+  }
+}
+
+.navbar a:hover {
+  color: black;
+  background-color: white;
+}
+
+.underline-txt {
+  position: relative;
+  width: fit-content;
+}
+
+.underline-txt::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.underline-txt:hover::after {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.navOpen {
+  height: 400vh;
+}
+.navOpen div {
+  height: 100vh;
+  align-items: flex-start;
+}
+
+.navOpen ul {
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  height: 100%;
+  gap: 3rem;
+  font-size: 2rem;
+}
+
+.navOpen li {
+  transform: translateX(-10%);
+}
+
+.image {
+  height: 500px;
+}
+
+@media screen and (width <= 768px) {
+  .navbar li {
+    display: none;
+  }
+  .btn {
+    display: block;
+  }
+  #About .image {
+    height: 300px;
+    width: 400px;
+  }
+  #Projects {
+    margin-top: 14rem;
+  }
+}
+
+@media screen and (width <= 912px) {
+  #About {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (width > 768px) {
+  .navOpen {
+    display: none;
+  }
+}
